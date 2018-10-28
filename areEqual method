@@ -1,0 +1,9 @@
+public static boolean areEqualByThreeDecimalPlaces(double val1, double val2) {
+        double newVal1 = (int) (val1 * 1000);
+        double newVal2 = (int) (val2 * 1000);
+
+        if (newVal1 == newVal2) {
+            return true;
+        }
+        return false;
+    }
