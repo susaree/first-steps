@@ -1,3 +1,5 @@
+Purpose: Take KiloBytes as input and print the value in MB and KB remaining.
+
 public class Main {
 
     public static void main(String[] args) {
