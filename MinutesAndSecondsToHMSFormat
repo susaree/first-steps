@@ -23,7 +23,21 @@ public class Main {
         if (minutes < 0 || seconds < 0 || seconds > 59) {
             return "Invalid value";
         }
-        return hours + "h " + minutesRemaining + "m " + seconds + "s";
+        String hoursString = hours + "h";
+        if (hours < 10) {
+            hoursString = "0" + hoursString;
+        }
+
+        String minutesString = minutesRemaining + "m";
+        if (minutesRemaining < 10) {
+            minutesString = "0" + minutesString;
+        }
+        String secondsString = seconds + "s";
+        if (seconds < 10) {
+            secondsString = "0" + secondsString;
+        }
+
+        return hoursString + " " + minutesString + " " + secondsString + " ";
 
 
     }
@@ -34,6 +48,7 @@ public class Main {
         if (seconds < 0) {
             return "Invalid value";
         }
+
         return getDurationString(minutesVal, secondsRemaining);
 
 
