@@ -1,0 +1,66 @@
+package com.mohammed;
+
+public class bankAccount {
+
+    int balance;
+    String customerName;
+    String email;
+    String phoneNum;
+    int accountNum;
+
+    public void deposit(int money){
+        this.balance += money;
+        System.out.println("Your new balance is " + balance);
+    }
+
+    public void withdraw(int money){
+        if(getBalance()<money){
+            System.out.println("Insufficient Funds");
+        } else {
+            balance -=money;
+            System.out.println("Your new balance is " + balance);
+        }
+    }
+
+    public int getAccountNum() {
+        return accountNum;
+    }
+
+    public void setAccountNum(int accountNum) {
+        this.accountNum = accountNum;
+    }
+
+    public int getBalance() {
+        return balance;
+    }
+
+    public void setBalance(int balance) {
+        this.balance = balance;
+    }
+
+    public String getCustomerName() {
+        return customerName;
+    }
+
+    public void setCustomerName(String customerName) {
+        this.customerName = customerName;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPhoneNum() {
+        return phoneNum;
+    }
+
+    public void setPhoneNum(String phoneNum) {
+        this.phoneNum = phoneNum;
+    }
+
+
+}
