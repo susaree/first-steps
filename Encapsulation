@@ -1,0 +1,57 @@
+package com.mohammed;
+
+public class Printer {
+    private int tonerLevel;
+    private int pagesPrinted;
+    private boolean isDuplex;
+
+    public Printer() {
+        this(0, 0, false);
+    }
+
+    public Printer(int tonerLevel, int pagesPrinted, boolean isDuplex) {
+        this.tonerLevel = tonerLevel;
+        this.pagesPrinted = pagesPrinted;
+        this.isDuplex = isDuplex;
+    }
+
+    public void fillToner(int toner) {
+        if (!((toner + this.tonerLevel) > 100)) {
+            if (this.tonerLevel < 100) {
+                this.tonerLevel += toner;
+                System.out.println("Toner topped up to " + this.tonerLevel);
+            } else {
+                System.out.println("Toner level full ");
+            }
+
+        } else {
+            System.out.println("Toner overfill warning ");
+        }
+
+    }
+
+    public void printing(int pages) {
+        if (isDuplex) {
+            System.out.println("Printing " + pagesPrinted + " front and back");
+        } else {
+
+            this.pagesPrinted += pages;
+            System.out.println("Printing " + pagesPrinted);
+        }
+
+    }
+
+
+    public int getTonerLevel() {
+        return tonerLevel;
+    }
+
+    public int getPagesPrinted() {
+        return pagesPrinted;
+    }
+
+    public boolean isDuplex() {
+        return isDuplex;
+    }
+
+}
