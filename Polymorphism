@@ -1,0 +1,143 @@
+package com.mohammed;
+
+class Car {
+    private String name;
+    private int cylinders;
+    private int wheels;
+    private boolean engine;
+    private int doors;
+    private int speed;
+
+
+
+
+    public Car(String name, int cylinders) {
+        this.name = name;
+        this.cylinders = cylinders;
+        this.wheels = 4;
+        this.engine = true;
+        this.doors = 4;
+    }
+
+    public String startEngine() {
+        return "Engine started ";
+    }
+
+    public void accelerate(int pedalPressure) {
+        switch (pedalPressure) {
+            case 0:
+                speed += 0;
+
+            case 1:
+                speed += 5;
+
+            case 2:
+                speed += 7;
+
+            case 3:
+                speed += 10;
+            default:
+                speed += 10;
+        }
+
+    }
+
+    public void brake(int pedalPressure) {
+        switch (pedalPressure) {
+            case 0:
+                speed -= 0;
+
+            case 1:
+                speed -= 5;
+
+            case 2:
+                speed -= 7;
+
+            case 3:
+                speed -= 10;
+            default:
+                speed -= 10;
+        }
+    }
+
+
+    public String getName() {
+        return name;
+    }
+
+    public int getCylinders() {
+        return cylinders;
+    }
+
+    public int getWheels() {
+        return wheels;
+    }
+
+    public boolean isEngine() {
+        return engine;
+    }
+
+    public int getDoors() {
+        return doors;
+    }
+
+    public int getSpeed() {
+        return speed;
+    }
+}
+
+class TurboDiesel extends Car {
+    public int turboSize;
+    public boolean dpf;
+
+    public TurboDiesel(String name, int cylinders, int turboSize, boolean dpf) {
+        super(name, cylinders);
+        this.turboSize = turboSize;
+        this.dpf = dpf;
+    }
+
+    @Override
+    public String startEngine() {
+
+        if (dpf) {
+            return this.turboSize + " litre Engine started, DPF needs cleaning";
+        }
+
+        return this.turboSize + " litre Engine started, DPF is clean";
+
+    }
+
+    public int getTurboSize() {
+        return turboSize;
+    }
+
+    public boolean isDpf() {
+        return dpf;
+    }
+}
+
+class HybridToyota extends Car {
+    public int batterySize;
+
+    public HybridToyota(int cylinders, String name, int batterySize) {
+        super(name, cylinders);
+        this.batterySize = batterySize;
+    }
+}
+
+public class Main {
+
+    public static void main(String[] args) {
+        Car car1 = new Car("Toyota",4);
+        System.out.println(car1.startEngine());
+        System.out.println(car1.getSpeed());
+        car1.accelerate(10);
+        System.out.println(car1.getSpeed());
+
+        Car car2 = new TurboDiesel("Audi",5,3,true);
+        System.out.println(car2.startEngine());
+
+
+
+    }
+}
