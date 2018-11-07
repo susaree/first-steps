@@ -1,0 +1,163 @@
+package com.mohammed;
+
+public class Hamburger {
+
+    private String name;
+    private String breadRollStyle;
+    private boolean meat;
+    private boolean lettuce;
+    private boolean cheese;
+    private boolean sauce;
+    private double price;
+
+    private String addition1Name;
+    private double addition1Price;
+
+    private String addition2Name;
+    private double addition2Price;
+
+    private String addition3Name;
+    private double addition3Price;
+
+    private String addition4Name;
+    private double addition4Price;
+
+
+    public Hamburger(String name, String breadRollStyle) {
+        this.name = name;
+        this.breadRollStyle = breadRollStyle;
+        this.meat = true;
+        this.lettuce = true;
+        this.cheese = false;
+        this.sauce = false;
+        this.price = 3.50;
+
+    }
+
+    public void addHamburgerAddition1(String name, double price){
+        this.addition1Name = name;
+        this.addition1Price = price;
+    }
+    public void addHamburgerAddition2(String name, double price){
+        this.addition2Name = name;
+        this.addition2Price = price;
+    }
+    public void addHamburgerAddition3(String name, double price){
+        this.addition3Name = name;
+        this.addition3Price = price;
+    }
+    public void addHamburgerAddition4(String name, double price){
+        this.addition4Name = name;
+        this.addition4Price = price;
+    }
+
+
+    public void itemizeHamburger(){
+        double hambugerPrice = this.price;
+        System.out.println(this.name + " on " + this.breadRollStyle + " = " + this.price);
+
+        if(this.addition1Name!=null){
+            hambugerPrice+=this.addition1Price;
+            System.out.println("Added " + this.addition1Name + " for an extra " + this.addition1Price + " costing a total of " + hambugerPrice);
+        }
+        if(this.addition2Name!=null){
+            hambugerPrice+=this.addition2Price;
+            System.out.println("Added " + this.addition2Name + " for an extra " + this.addition2Price);
+        }
+        if(this.addition3Name!=null){
+            hambugerPrice+=this.addition3Price;
+            System.out.println("Added " + this.addition3Name + " for an extra " + this.addition3Price);
+        }
+        if(this.addition4Name!=null){
+            hambugerPrice+=this.addition4Price;
+            System.out.println("Added " + this.addition4Name + " for an extra " + this.addition4Price);
+        }
+
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getBreadRollStyle() {
+        return breadRollStyle;
+    }
+
+    public boolean isMeat() {
+        return meat;
+    }
+
+    public boolean isLettuce() {
+        return lettuce;
+    }
+
+    public boolean isCheese() {
+        return cheese;
+    }
+
+
+    public boolean isSauce() {
+        return sauce;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setBreadRollStyle(String breadRollStyle) {
+        this.breadRollStyle = breadRollStyle;
+    }
+
+    public void setMeat(boolean meat) {
+        this.meat = meat;
+    }
+
+    public void setLettuce(boolean lettuce) {
+        this.lettuce = lettuce;
+    }
+
+    public void addCheese() {
+        this.cheese = true;
+        setPrice(this.price + 0.5);
+
+    }
+
+    public void addSauce() {
+        this.sauce = true;
+
+        setPrice(this.price + 0.25);
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+}
+    class AmericanBurger extends Hamburger{
+       private boolean onions;
+       private boolean extraCheese;
+
+       public AmericanBurger(boolean onions, boolean extraCheese){
+           super("American burger","American bread");
+           this.onions = onions;
+           this.extraCheese = extraCheese;
+       }
+       @Override
+       public void addCheese(){
+           this.extraCheese = true;
+           setPrice(getPrice()+0.75);
+       }
+
+        public boolean isOnions() {
+            return onions;
+        }
+
+        public boolean isExtraCheese() {
+            return extraCheese;
+        }
+    }
+
+
